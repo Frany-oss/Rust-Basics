@@ -10,7 +10,7 @@ fn get_random() -> i32 {
 fn main() {
     println!("Hello, world!");
 
-    // 
+    // storing the random number in a varialbe for later use
     let number = get_random();
         
 }
