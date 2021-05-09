@@ -12,5 +12,25 @@ fn main() {
 
     // storing the random number in a varialbe for later use
     let number = get_random();
-        
+
+    let mut guesingNumberString = String::new();
+
+    std::io::stdin().read_line(&mut guesingNumberString).expect("Failed to read line");
+    let guesingNumber = guesingNumberString.parse::<i32>().unwrap();
+
+    loop {
+        print!("Enter your guess: ");
+
+        if guesingNumber < number {
+            println!("To low!");
+        }
+        else if guesingNumber > number{
+            println!("To high!");
+        }
+        else {
+            println!("Correct!!! the number was {}", number);
+            break;
+        }
+    }
+     
 }
