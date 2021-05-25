@@ -14,30 +14,41 @@ fn main() {
     // storing the random number in a variable for later use
     let number: i32 = get_random();
 
-    let mut guesingNumberString: String = String::new();
+    let mut correct: bool = false;
+    let mut guesses: i8 = 0;
 
-    std::io::stdin().read_line(&mut guesingNumberString).expect("Failed to read line");
-    let guesingNumber: i32 = guesingNumberString.trim().parse().unwrap();
+    while !correct {
+        println!("Enter you guess: ");
+        guesses += 1;
 
-    println!("{}", guesingNumber);
-    println!("{}", number);
+        let mut guesingNumberString: String = String::new();
+        std::io::stdin().read_line(&mut guesingNumberString).expect("Failed to read line");
 
-   /* loop {
-        print!("Enter your guess: ");
+        let guess: i32 = match guesingNumberString.trim().parse() {
+            Ok(number) => number,
+            Err(_) => continue
+        };
 
-        if guesingNumber < number {
-            println!("To low!");
-            process::exit(1);
-            
+        let difference: i32 = (number - guess).abs();
+
+        match difference {
+            0 => println!("Correct!"),
+            1 ..= 10 => println!("Almost!"),
+            11 ..= 25 => println!("Getting there."),
+            26 ..= 50 => println!("Nowhere near."),
+            _ => println!("Nope.")
         }
-        else if guesingNumber > number{
-            println!("To high!");
-            continue;
+
+        match guess.cmp(&number) {
+            std::cmp::Ordering::Less => println!("{} is too low! Try again!", guess),
+            std::cmp::Ordering::Greater => println!("{} is too high! Try again!", guess),
+            std::cmp::Ordering::Equal => {
+                println!("You got it!!");
+                println!("You try {} times", guesses);
+                correct = true;
+            }
         }
-        else {
-            println!("Correct!!! the number was {}", number);
-            break;
-        }
-    }*/
+
+    }
      
 }
