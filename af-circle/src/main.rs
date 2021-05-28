@@ -11,11 +11,11 @@ const PI:f32 = 3.14159;
 fn circle(number: f32, input: &str) {
 
     // if the input is radio, then we need to calculate the area and the diameter of the circle
-    if input.trim() == "radio" {
+    if input == "radio" {
         println!("diameter: {} and area: {}", number*number, PI*number.powi(2));
 
     // if the input is diameter, then we need to calculate the area and the radio of the circle
-    } else if input.trim() == "diameter" {
+    } else if input == "diameter" {
         println!("radio: {} and area: {}", number / 2.0, PI*number.powi(2));
 
     // if the input is area, then we need to calculate the radio and the diameter of the circle
@@ -46,6 +46,6 @@ fn main() {
     let number = input_number.trim().parse::<f32>().expect("Error...");
 
     // call the function
-    circle(number, &input_option);
+    circle(number, &input_option.trim());
 
 }
