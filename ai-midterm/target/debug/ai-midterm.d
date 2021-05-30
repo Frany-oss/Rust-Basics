@@ -1,0 +1,1 @@
+C:\Users\Francesco\Documents\Programacion\Rust\Rust-Basics\ai-midterm\target\debug\ai-midterm.exe: C:\Users\Francesco\Documents\Programacion\Rust\Rust-Basics\ai-midterm\src\main.rs C:\Users\Francesco\Documents\Programacion\Rust\Rust-Basics\ai-midterm\src\midterms.rs
